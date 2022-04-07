@@ -25,14 +25,40 @@ body {
     border-radius: 15px;
 }
 
-.container img {
+.container .image {
+    width: 100%;
+    position: relative;
+}
+
+.container .image img {
     width: 100%;
     border-radius: 10px;
+}
+
+.container .image img:last-child {
+    background: hsla(178, 100%, 50%, 0.5);
+    padding: 40%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.5s;
+}
+
+.container .image img:last-child:hover {
+    opacity: 1;
 }
 
 .container h2 {
     color: white;
     margin: 20px 0;
+    cursor: pointer;
+    transition: color 0.5s;
+    width: 65%;
+}
+
+.container h2:hover {
+    color: hsla(178, 100%, 50%);
 }
 
 .container p {
@@ -93,6 +119,12 @@ body {
 .creator-text .name-creator {
     color: white;
     margin-left: 5px;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+.creator-text .name-creator:hover {
+    color: hsla(178, 100%, 50%);
 }
 
 .attribution {
