@@ -7,6 +7,26 @@ var contentCartContent = document.querySelector('.content-cart .content')
 var btnCart = document.querySelector('.nav-right svg')
 var body = document.querySelector('body')
 var amountCart = document.querySelector('.amount-cart')
+var btnPrevious = document.querySelector('.btn-previous')
+var btnNext = document.querySelector('.btn-next')
+var img = document.querySelector('.slider img')
+var cont = 1
+
+console.log(img.src)
+
+btnPrevious.addEventListener('click', () => {
+    cont -= 1
+    if(cont <= 0) cont = 1
+    img.src = `images/image-product-${cont}.jpg`
+    console.log(cont)
+})
+
+btnNext.addEventListener('click', () => {
+    cont += 1
+    if(cont >= 5) cont = 4
+    img.src = `images/image-product-${cont}.jpg`
+    console.log(cont)
+})
 
 btnCart.addEventListener('click', () => {
     contentCart.classList.toggle('active')

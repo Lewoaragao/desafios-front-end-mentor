@@ -19,7 +19,7 @@ body {
 
 .container {
     max-width: 900px;
-    height: 700px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,6 +33,8 @@ nav {
     width: 100%;
     color: hsl(219, 9%, 45%);
     border-bottom: 2px solid hsl(220, 14%, 75%);
+    z-index: 1;
+    background: white;
 }
 
 nav .nav-left {
@@ -41,6 +43,10 @@ nav .nav-left {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+nav .nav-left svg {
+    display: none;
 }
 
 nav .nav-left ul {
@@ -168,7 +174,7 @@ nav .nav-right .content-cart .content .content-img-text {
     align-items: center;
 }
 
-nav .nav-right .content-cart .content .content-img-text img{
+nav .nav-right .content-cart .content .content-img-text img {
     height: 50%;
     border-radius: 5px;
 }
@@ -187,6 +193,7 @@ nav .nav-right .content-cart .content .btn-checkout {
     cursor: pointer;
     transition: opacity 0.3s;
 }
+
 nav .nav-right .content-cart .content .btn-checkout:hover {
     opacity: 0.5;
 }
@@ -205,11 +212,16 @@ nav .nav-right .profile:hover {
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
+    display: flex;
     justify-content: space-around;
+    align-items: center;
     height: 100%;
+    width: 100%;
+}
+
+.content div:nth-child(3) {
+    position: absolute;
+    bottom: 0;
 }
 
 .content .content-left {
@@ -258,6 +270,10 @@ nav .nav-right .profile:hover {
 .content .content-left .image-secondary img.image-active {
     border: 2px solid hsl(26, 100%, 55%);
     opacity: 0.5;
+}
+
+.content .content-left .slider {
+    display: none;
 }
 
 .content .content-right {
@@ -390,8 +406,6 @@ nav .nav-right .profile:hover {
 }
 
 .attribution {
-    position: absolute;
-    bottom: 0;
     font-size: 11px;
     text-align: center;
     font-weight: 700;
@@ -402,13 +416,126 @@ nav .nav-right .profile:hover {
     text-decoration: none;
 }
 
-
 .attribution a:hover {
     text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
-    nav ul {
-        /* display: none; */
+    body {
+        padding: 0;
+        width: 100%;
+    }
+
+    nav {
+        padding: 0 10px;
+        border-bottom: none;
+    }
+
+    nav .nav-left svg {
+        display: block;
+        margin-right: 10px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    nav .nav-left svg:hover path {
+        fill: black;
+    }
+
+    nav .nav-left ul {
+        display: none;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .content div:nth-child(3) {
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .content .content-left .image-principal {
+        height: 100%;
+    }
+
+    .content .content-left .image-principal,
+    .content .content-left .image-secondary {
+        display: none;
+    }
+
+    .content .content-left .slider {
+        display: flex;
+        position: relative;
+        max-width: 500px;
+        margin-top: 350px;
+    }
+
+    .content .content-left .slider .buttons {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .content .content-left .slider .buttons .btn-previous,
+    .content .content-left .slider .buttons .btn-next {
+        background: white;
+        border: none;
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s;
+    }
+
+    .content .content-left .slider .buttons .btn-previous:hover,
+    .content .content-left .slider .buttons .btn-next:hover {
+        opacity: 1;
+    }
+
+    .content .content-left .slider img {
+        max-width: 100%;
+    }
+
+    .content .content-right {
+        margin-top: 150px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content .content-left .slider {
+        margin-top: 150px;
+    }
+    .content .content-right {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-height: 700px) {
+    .content .content-left .slider {
+        margin-top: 100px;
+    }
+    .content .content-right {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .content .content-left .slider {
+        margin-top: 20px;
+    }
+    .content .content-right {
+        margin-top: 20px;
     }
 }
