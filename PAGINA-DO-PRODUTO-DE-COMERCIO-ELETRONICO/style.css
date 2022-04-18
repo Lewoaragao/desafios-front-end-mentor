@@ -126,11 +126,15 @@ nav .nav-right .content-cart {
     right: -20px;
     width: 250px;
     height: 150px;
-    display: flex;
+    display: none;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0 5px 40px -20px rgba(0, 0, 0, 0.75);
     background: white;
+}
+
+nav .nav-right .content-cart.active {
+    display: flex;
 }
 
 nav .nav-right .content-cart h4 {
@@ -141,18 +145,50 @@ nav .nav-right .content-cart h4 {
 
 nav .nav-right .content-cart .line {
     height: 1px;
+    width: 100%;
     background: hsl(220, 14%, 75%);
 }
 
 nav .nav-right .content-cart .content {
     color: hsl(219, 9%, 45%);
-    width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-size: 12px;
+    padding: 5px;
+}
+
+nav .nav-right .content-cart .content .content-img-text {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .nav-right .content-cart .content .content-img-text img{
+    height: 50%;
+    border-radius: 5px;
+}
+
+nav .nav-right .content-cart .content div .res {
     font-weight: 700;
+}
+
+nav .nav-right .content-cart .content .btn-checkout {
+    background: hsl(26, 100%, 55%);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+nav .nav-right .content-cart .content .btn-checkout:hover {
+    opacity: 0.5;
 }
 
 nav .nav-right .profile {
@@ -362,7 +398,13 @@ nav .nav-right .profile:hover {
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: hsl(26, 100%, 55%);
+    text-decoration: none;
+}
+
+
+.attribution a:hover {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
