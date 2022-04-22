@@ -63,4 +63,7 @@ btnReset.onclick = () => {
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = ''
     }
+
+    tipAmountPerson.value = 0
+    totalPerson.value = 0
 }
