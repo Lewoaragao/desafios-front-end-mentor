@@ -80,6 +80,10 @@ button:hover {
 }
 .attribution a { 
     color: hsl(193, 38%, 86%);
+    text-decoration: none;
+}
+.attribution a:hover { 
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 550px) {
