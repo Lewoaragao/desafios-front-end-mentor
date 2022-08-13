@@ -16,9 +16,9 @@ if(inputs[2].value == '' || inputs[2].value == 0) {
     porcents = 10
     for (var i = 0; i < btnPorcents.length; i++) {
         btnPorcents[i].addEventListener("click", function () {
-            var current = document.getElementsByClassName("btnActive");
-            current[0].className = current[0].className.replace(" btnActive", "");
-            this.className += " btnActive";
+            var current = document.getElementsByClassName('btnActive');
+            current[0].className = current[0].className.replace(' btnActive', '');
+            this.className += ' btnActive';
             var btnValue = parseInt(this.value)
             parseInt(btnValue)
             porcents = btnValue

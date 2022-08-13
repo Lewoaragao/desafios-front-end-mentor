@@ -64,8 +64,17 @@ nav .nav-left ul li {
     border-bottom: 3px solid transparent;
 }
 
+nav .nav-left ul li svg {
+    display: none;
+}
+
 nav .nav-left ul li:last-child {
     margin-right: 10px;
+}
+
+nav .nav-left ul li:nth-child(1):hover {
+    border-bottom: 3px solid transparent;
+    cursor: default;
 }
 
 nav .nav-left ul li:hover {
@@ -247,6 +256,7 @@ nav .nav-right .profile:hover {
 .content .content-left .image-principal img {
     width: 100%;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .content .content-left .image-secondary {
@@ -444,6 +454,30 @@ nav .nav-right .profile:hover {
 
     nav .nav-left ul {
         display: none;
+        position: absolute;
+        top: 0;
+        left: -15px;
+        padding: 10px 100px 20px 10px;
+        background: white;
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    nav .nav-left ul li{
+        background: white;
+        padding: 10px 0;
+        color: black;
+    }
+
+    nav .nav-left ul li svg {
+        display: block;
+    }
+
+    nav .nav-right .content-cart {
+        top: 75px;
+        right: -25px;
+        width: 355px;
+        height: 150px;
     }
 
     .content {
@@ -462,6 +496,11 @@ nav .nav-right .profile:hover {
     .content .content-left .image-principal,
     .content .content-left .image-secondary {
         display: none;
+    }
+
+    .content .content-left .slider-principal {
+        opacity: 0;
+        z-index: -1;
     }
 
     .content .content-left .slider {

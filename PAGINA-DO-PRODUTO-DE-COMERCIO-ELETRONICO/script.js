@@ -10,27 +10,47 @@ var amountCart = document.querySelector('.amount-cart')
 var btnPrevious = document.querySelector('.btn-previous')
 var btnNext = document.querySelector('.btn-next')
 var img = document.querySelector('.slider img')
+var btnCloseMenu = document.getElementById('btnCloseMenu')
+var btnOpenMenu = document.getElementById('btnOpenMenu')
+var menu = document.getElementById('menu')
+var bigPicture = document.getElementById('image-principal')
+var miniPictures = document.getElementById('image-secondary')
+var btnMiniPictures = miniPictures.getElementsByClassName('miniPicture')
 var cont = 1
 
-console.log(img.src)
+for (var i = 0; i < btnMiniPictures.length; i++) {
+    btnMiniPictures[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName('image-active');
+        current[0].className = current[0].className.replace(' image-active', '');
+        this.className += ' image-active';
+
+        var altImg = justNumbers(this.alt)
+        bigPicture.src = `images/image-product-${altImg}.jpg`
+        bigPicture.alt = `Picture ${altImg}`
+    })
+}
+
+
+function justNumbers(text) {
+    var numbers = text.replace(/[^0-9]/g, '');
+    return parseInt(numbers);
+}
 
 btnPrevious.addEventListener('click', () => {
     cont -= 1
-    if(cont <= 0) cont = 1
+    if (cont <= 0) cont = 4
     img.src = `images/image-product-${cont}.jpg`
-    console.log(cont)
 })
 
 btnNext.addEventListener('click', () => {
     cont += 1
-    if(cont >= 5) cont = 4
+    if (cont >= 5) cont = 1
     img.src = `images/image-product-${cont}.jpg`
-    console.log(cont)
 })
 
-btnCart.addEventListener('click', () => {
+btnCart.onclick = () => {
     contentCart.classList.toggle('active')
-})
+}
 
 btnMinus.addEventListener('click', () => {
     inputAmount.value -= 1
@@ -67,3 +87,13 @@ btnAdd.addEventListener('click', () => {
     amountCart.innerHTML = `<input type="number" value="${inputAmount.value}" readonly>`
     inputAmount.value = 0
 })
+
+btnOpenMenu.onclick = () => {
+    menu.style.display = 'block'
+    btnPrevious.style.opacity = '0'
+}
+
+btnCloseMenu.onclick = () => {
+    menu.style.display = 'none'
+    btnPrevious.style.opacity = '1'
+}
